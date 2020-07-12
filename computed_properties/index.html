@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed Properties</title>
+</head>
+<body>
+    <a href="../index.html">Back</a>
+    <h3>
+       Computed properties are properties that are calculated prior to displaying to the user. Very useful for lists filtering.
+    </h3>
+    <div id="root">
+        <h2>All Tasks</h2>
+        <li v-for="task in tasks" v-text="task.description"></li>
+        <h2>Incomplete Tasks</h2>
+        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: {
+               tasks: [
+                   {description: 'Go to store', completed: true},
+                   {description: 'Learn Vue', completed: false},
+                   {description: 'Become Vue master', completed: false},
+                   {description: 'Build awesome Vue app', completed: false},
+                   {description: 'Build awesome Laravel App', completed: true},
+               ]
+            },
+            computed: {
+                incompleteTasks() {
+                    return this.tasks.filter(task => ! task.completed);
+                }
+            },
+        })
+
+    </script>
+</body>
+</html>
