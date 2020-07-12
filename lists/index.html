@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+</head>
+<body>
+    <a href="../index.html">Back</a>
+    <h3>
+        Lists can be renderd with the help of v-for directive. The data from v-for can be rendered with either the mustache syntax or the v-text directive
+    </h3>
+    <div id="root">
+        <ul>
+            <li v-for="name in names" v-text="name"></li>
+        </ul>
+        <input id="input" type="text">
+        <button id="button">Add name</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: {
+                 names: ['Joe', 'Mary', 'Joe', 'Jack']
+            },
+            mounted() {
+                document.querySelector('#button').addEventListener('click', () => {
+                    let name = document.querySelector('#input');
+                    app.names.push(name.value);
+                    name.value = '';
+                });
+            }
+        })
+
+    </script>
+</body>
+</html>
