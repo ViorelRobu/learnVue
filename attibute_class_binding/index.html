@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute and Class Binding</title>
+    <style>
+        .is-loading {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html">Back</a>
+    <h3>
+        You can bind the attributes and classes of the different HTML elements to a data property from vue with the v-bind: directive (eg: v-bind:title="title"). 
+        Here also we have the shorthand :title instead of v-bind:title="".
+        For classes we can have conditional classes based on values from the vue data object
+    </h3>
+    <div id="root">
+        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Click me</button>
+        <button :disabled="isDisabled" @click="disableMe">Am I disabled?</button>
+        <button :title="title">Hover over me</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: {
+               title: 'Now the title is set throug JS',
+               isLoading: false,
+               isDisabled: false,
+
+            },
+            methods: {
+                toggleClass() {
+                    this.isLoading = true;
+                },
+                disableMe() {
+                    this.isDisabled = true;
+                }
+            },
+
+        })
+
+    </script>
+</body>
+</html>
