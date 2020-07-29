@@ -11,9 +11,14 @@
 <body>
     <a href="../index.html">Back</a>
      <h3>
-         
+         Components can emit custom events with the $event('name') directive in order to communicate certain info to the root element
      </h3>
     <div id="root" class="container">
+        <modal v-if="showModal" @close="showModal=false">
+            <p>We insert whatever we want here!</p>
+        </modal>
+        <button @click="showModal=true">Show Modal</button>
+
         <message title="Hello World" body="Lorem ipsum dolor sit amet."></message>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
