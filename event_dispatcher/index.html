@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event dispatcher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+    <a href="../index.html">Back</a>
+     <h3>
+         Vue can use shared event listener by defining one new Vue() instance in the window object. Shared event listeners are not limited to broadcasting events only
+         to child components as they can transmit data to siblings.
+         You can also wrap this in a new class with a constructor and create an adaptor.
+     </h3>
+    <div id="root" class="container">
+        <div id="root" class="container">
+            <coupon @applied="onCouponApplied"></coupon>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
